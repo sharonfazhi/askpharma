@@ -11,6 +11,7 @@ export default function AuthPage() {
   const navigate = useNavigate();
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const BASE = import.meta.env.VITE_API_URL ?? '';
 
   const submit = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ export default function AuthPage() {
         ? { email: form.email, password: form.password }
         : { name: form.name, email: form.email, password: form.password };
 
-      const res = await fetch(`/api/auth/${mode}`, {
+      const res = await fetch(`${BASE}/api/auth/${mode}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

@@ -1,6 +1,6 @@
 import { useAuth } from '../context/AuthContext';
 
-const BASE = import.meta.env.VITE_API_URL ?? '';
+const BASE = 'https://askpharma.onrender.com';
 
 export function useApi() {
   const { token } = useAuth();
